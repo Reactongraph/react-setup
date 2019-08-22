@@ -1,11 +1,12 @@
-import { put, takeEvery, call } from 'redux-saga/effects'
-import get from '../getApiCaller'
+import { put, takeEvery } from "redux-saga/effects";
+// import { put, takeEvery, call } from 'redux-saga/effects'
+// import get from '../getApiCaller'
 
-const API_DATA = payload => {
-  // return get('endPoint', 'GET', true).then(response => {
-  //   return response
-  // })
-}
+// const API_DATA = payload => {
+//   return get('endPoint', 'GET', true).then(response => {
+//     return response
+//   })
+// }
 
 export const DEMO_SAGA = function* perform_demoAction() {
   yield takeEvery('DEMO', function*(action) {

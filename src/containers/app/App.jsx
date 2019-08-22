@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Heading from '../../components/heading/Heading'
+import Heading from '../../components/common/heading/Heading'
 
 class App extends React.Component {
   constructor(props) {

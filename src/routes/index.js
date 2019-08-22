@@ -10,7 +10,7 @@ const Loading = () => {
 const ProjectRoutes = props => {
   return (
     <BrowserRouter>
-      <Suspense fallback={Loading}>
+      <Suspense fallback={<Loading />}>
         <Switch>
           <Route path="/" exact component={App} />
           <Route path="*" component={NotFound} />
