@@ -2,7 +2,7 @@ import fetch from 'cross-fetch'
 import { checkStatus, parseJSON } from '../utils/responseHandler'
 
 const constant = {
-  URL: 'API URL'
+  URL: 'API URL',
 }
 // Make an api call
 
@@ -11,20 +11,20 @@ export default async (url, method = 'get', authorization) => {
   if (authorization) {
     headers = {
       'Content-Type': 'application/json',
-      auth_token: localStorage.getItem('token')
+      auth_token: localStorage.getItem('token'),
     }
   } else {
     headers = {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     }
   }
   return fetch(`${constant.URL}${url}`, {
     method,
-    headers: headers
+    headers: headers,
   })
     .then(checkStatus)
     .then(parseJSON)
-    .catch(error => {
+    .catch((error) => {
       throw error
     })
 }

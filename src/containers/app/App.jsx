@@ -1,28 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import Heading from '../../components/common/heading/Heading'
 
-class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-
-  componentDidMount() {
-    const { dispatch } = this.props
+const App = ({ dispatch }) => {
+  useEffect(() => {
     dispatch({ type: 'DEMO', payload: { title: 'Hello from Action' } })
-  }
+  }, [])
 
-  render() {
-    return (
-      <React.Fragment>
-        <Heading
-          title="Hello from application component"
-          className="appHeading"
-        />
-      </React.Fragment>
-    )
-  }
+  return (
+    <React.Fragment>
+      <Heading
+        title="Hello from application component"
+        className="appHeading"
+      />
+    </React.Fragment>
+  )
 }
 
 export default connect()(App)
