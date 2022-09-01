@@ -2,29 +2,27 @@ import fetch from 'cross-fetch'
 import { checkStatus, parseJSON } from '../utils/responseHandler'
 
 const constant = {
-  URL: 'API URL'
+  URL: 'API URL',
 }
 // Make an api call
 
 export default async (url, method = 'get', authorization) => {
-  var headers = {}
+  const headers = {
+    'Content-Type': 'application/json',
+  }
   if (authorization) {
     headers = {
-      'Content-Type': 'application/json',
-      auth_token: localStorage.getItem('token')
-    }
-  } else {
-    headers = {
-      'Content-Type': 'application/json'
+      ...headers,
+      auth_token: localStorage.getItem('token'),
     }
   }
   return fetch(`${constant.URL}${url}`, {
     method,
-    headers: headers
+    headers,
   })
     .then(checkStatus)
     .then(parseJSON)
-    .catch(error => {
+    .catch((error) => {
       throw error
     })
 }
