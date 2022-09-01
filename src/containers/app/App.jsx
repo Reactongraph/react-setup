@@ -8,12 +8,7 @@ const App = ({ dispatch }) => {
   }, [])
 
   return (
-    <React.Fragment>
-      <Heading
-        title="Hello from application component"
-        className="appHeading"
-      />
-    </React.Fragment>
+    <Heading title="Hello from application component" className="appHeading" />
   )
 }
 

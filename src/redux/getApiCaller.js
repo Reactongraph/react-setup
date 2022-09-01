@@ -7,20 +7,18 @@ const constant = {
 // Make an api call
 
 export default async (url, method = 'get', authorization) => {
-  var headers = {}
+  const headers = {
+    'Content-Type': 'application/json',
+  }
   if (authorization) {
     headers = {
-      'Content-Type': 'application/json',
+      ...headers,
       auth_token: localStorage.getItem('token'),
-    }
-  } else {
-    headers = {
-      'Content-Type': 'application/json',
     }
   }
   return fetch(`${constant.URL}${url}`, {
     method,
-    headers: headers,
+    headers,
   })
     .then(checkStatus)
     .then(parseJSON)
